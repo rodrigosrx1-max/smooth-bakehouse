@@ -1,0 +1,387 @@
+/* ========================= GLOBAL BASE ========================= */
+/* Este arquivo define padrões universais usados pelo site todo. */
+/* Nada aqui deve ser específico de header, home, cookies, etc.  */
+
+
+:root {
+  --font-inter: "Inter", sans-serif;
+}
+
+
+
+/* ------------------------- TIPOGRAFIA ------------------------- */
+html, body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+  overflow-x: hidden; /* evita scroll lateral */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* antes era menor */
+  margin-inline: auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
+
+/* ------------------------- LINKS ------------------------- */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+/* ------------------------- BOTÕES GERAIS ------------------------- */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  transition: 0.25s ease;
+}
+
+/* ------------------------- TÍTULOS ------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Nexa Heavy", sans-serif; /* ATIVA Bingo nos títulos */
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* ------------------------- gambi ------------------------- */
+/*.text-thin {
+  font-family: "Nexa Heavy", sans-serif;
+  font-weight: 400;        /* mantém o peso original */
+ /* opacity: 0.85;           /* deixa visualmente mais leve */
+ /* -webkit-text-stroke: 0.2px transparent; /* suaviza as bordas */
+/*}*/
+
+/* ------------------------- TEXTO ------------------------- */
+p, span, li {
+  color: var(--brown);
+  word-break: break-word;
+}
+
+/* ------------------------- IMAGENS ------------------------- */
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* ------------------------- SEÇÕES----SOBRE + CONTATO---------------------- */
+.section {
+  padding: 4rem 0;
+  background: #F7EFE6;
+}
+
+.section-title {
+  font-family: "Nexa Heavy", sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--brown);
+  margin-bottom: 2rem;
+}
+
+/* ------------------------- UTILITÁRIOS ------------------------- */
+
+/* Flex helpers */
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Espaçamentos */
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+
+/*---------------- ===== Underline Animado Universal Enche igual home===== ---------------------------*/
+.underline-animado {
+  position: relative;
+  display: inline-block; /* permite animar sublinhado sem quebrar layout */
+  padding-bottom: 3px;
+}
+
+.underline-animado::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+ /* background: red; /* cor do sublinhado */
+  transition: width 0.35s ease;
+}
+
+.underline-animado:hover::after {
+  width: 100%;
+}
+
+/* ------------------------- SOMBRAS UNIVERSAIS ------------------------- */
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+/* ------------------------- RESPONSIVIDADE BÁSICA ------------------------- */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+
+/* =========================================
+   SECTION TITLES — UNDERLINE ANIMADO
+   ========================================= */
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* underline escondido */
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--rose);
+
+
+  transition:
+    width 0.35s ease 0.25s; /* 👈 delay de 0.25s */
+}
+
+
+/* ativado por scroll */
+.section-title.is-active::after {
+  width: 100%;
+}
+
+/* =========================================
+   CENTRALIZAR TÍTULOS DAS SEÇÕES
+   ========================================= */
+
+.section-title {
+  display: block;              /* 🔑 essencial */
+  width: fit-content;          /* título ocupa só o texto */
+  margin: 0 auto 1.6rem;       /* centraliza horizontal */
+  text-align: center;
+}
+
+
+
+
+
+
+/* =========================================================
+   OFFSET DE SCROLL — AJUSTE FINO
+   ========================================================= */
+
+/* Cookies (título da seção) */
+#cookies {
+  scroll-margin-top: 45px;
+}
+
+/* Categoria Clássicos */
+#classicos {
+  scroll-margin-top: 77px;
+}
+
+/* Sobre */
+#sobre {
+  scroll-margin-top: 30px;
+}
+
+/* CHECKOUT — especial (porque usa scrollIntoView) */
+  #checkout {
+  scroll-margin-top: 60px;
+}
+
+
+/* =========================
+   OFFSET SCROLL — MOBILE
+========================= */
+@media (max-width:768px){
+
+  #cookies{
+    scroll-margin-top: 90px;
+  }
+
+  #classicos{
+    scroll-margin-top: 75px;
+  }
+
+  #checkout{
+    scroll-margin-top: 45px;
+  }
+
+  #sobre{
+    scroll-margin-top: 35px;
+  }
+
+  #contato{
+    scroll-margin-top: 90px;
+  }
+
+}
+
+/* =========================================================
+   BODY — BLOCO REMOVIDO (duplicado e conflitante)
+   =========================================================
+
+body {
+  font-family: "Nexa Heavy", sans-serif;
+  line-height: 1.6;
+  background: var(--background);
+  color: var(--text);
+}
+
+*/
+
+
+
+@font-face {
+  font-family: 'Summer';
+  src: url('../../fonts/summer.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'Austrisa Demo';
+  src: url('../../fonts/austria.otf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Nexa Heavy';
+  src: url('../../fonts/Nexa-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nexa-Trial';
+  src: url('../../fonts/Nexa-Trial.otf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nexa Extra Light';
+  src: url('fonts/Nexa-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NirmalaRegular';
+  src: url('fonts/Nirmala-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Regular';
+  src: url('../../fonts/Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MentholSignature';
+  src: url('../../fonts/Menthol Signature.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bingo';
+  src: url('../../fonts/Bingo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  }
+
+@font-face {
+  font-family: 'Cottage and Farmhouse';
+  src: url('fonts/cottage.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+@font-face {
+  font-family: 'Agency';
+  src: url('../../fonts/agency.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+  @font-face {
+  font-family: 'Russo One';
+  src: url('../../fonts/RussoOne.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+   }
+
+     @font-face {
+  font-family: 'BaronNeve';
+  src: url('../../fonts/BaronNeve.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+   }
+
+    @font-face {
+  font-family: 'Bebas Neve';
+  src: url('../../fonts/BebasNeue-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+   }
+
+       @font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/RobotoBold.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+   }
+
+   section {
+  scroll-margin-top: 95px;
+}
+
+
+
+/*-------Remove azul do botão--------------------------------*/
+* { -webkit-tap-highlight-color: transparent; }
+
+button:active {
+  transform: scale(.97);
+}
+
+
