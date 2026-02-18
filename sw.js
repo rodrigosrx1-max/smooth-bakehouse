@@ -1,4 +1,4 @@
-const CACHE_NAME = "smooth-cache-v13";
+const CACHE_NAME = "smooth-cache-v14";
 
 const FILES_TO_CACHE = [
   "/",
@@ -80,5 +80,6 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
 
 
