@@ -7,6 +7,10 @@
   <meta charset="UTF-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+
   <title>Smooth — Bakehouse</title>
 
 
@@ -39,6 +43,12 @@
 </head>
 
 <body>  <!-- versão sem padrão elipse -->
+
+  <!-- SPLASH PREMIUM -->
+<div id="splash-screen">
+  <img src="img/logo/logo.svg" alt="Smooth Bakehouse">
+</div>
+
 
   <!-- MINI CART DESKTOP (NOVO CHECKOUT) -->
 <div class="sc-mini-cart" id="miniCart">
@@ -834,6 +844,22 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+
+
+<!------------Splash intro app-->
+<script>
+window.addEventListener("load", () => {
+  const splash = document.getElementById("splash-screen");
+
+  setTimeout(() => {
+    splash.classList.add("splash-hide");
+
+    setTimeout(() => splash.remove(), 600);
+  }, 900);
+});
+</script>
+
+
 
 
 </body>
