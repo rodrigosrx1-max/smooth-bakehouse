@@ -1,6 +1,6 @@
 {
-  "name": "Smooth5 — Bakehouse",
-  "short_name": "Smooth5",
+  "name": "Smooth15 — Bakehouse",
+  "short_name": "Smooth15",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#F7EFE6",
@@ -27,4 +27,5 @@
     }
   ]
 }
+
 
